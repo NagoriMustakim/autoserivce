@@ -2,40 +2,49 @@ import { CheckCircle } from 'lucide-react';
 
 const solutions = [
   {
-    title: "For Dealerships",
-    description: "Complete dealership management platform",
+    image: "🚗",
+    title: "Dealership Management",
+    description: "Complete solution for auto dealerships",
     features: [
-      "Lead management and CRM",
-      "Inventory tracking and pricing",
-      "Sales process automation",
-      "Customer communication tools",
-      "Financial reporting and analytics"
-    ],
-    image: "🏢"
+      "Inventory management system",
+      "Customer relationship management",
+      "Sales tracking and analytics",
+      "Service appointment scheduling",
+      "Financial reporting dashboard",
+      "Multi-location support",
+      "Staff management tools",
+      "Document management system"
+    ]
   },
   {
-    title: "For Service Centers",
-    description: "Streamlined workshop operations",
+    image: "🔧",
+    title: "Service Center Solution",
+    description: "Streamline your workshop operations",
     features: [
-      "Appointment scheduling system",
       "Work order management",
-      "Technician assignment and tracking",
-      "Parts ordering and inventory",
-      "Customer service history"
-    ],
-    image: "🔧"
+      "Technician scheduling",
+      "Parts inventory tracking",
+      "Customer communication portal",
+      "Quality control checklists",
+      "Billing and invoicing",
+      "Performance analytics",
+      "Mobile app integration"
+    ]
   },
   {
-    title: "For Manufacturers",
-    description: "Enterprise-level manufacturing solutions",
+    image: "📱",
+    title: "Mobile Applications",
+    description: "Custom mobile apps for your business",
     features: [
-      "Supply chain management",
-      "Quality control systems",
-      "Production planning and scheduling",
-      "Dealer network management",
-      "Warranty and recall management"
-    ],
-    image: "🏭"
+      "Native iOS and Android apps",
+      "Real-time notifications",
+      "Offline functionality",
+      "User-friendly interface",
+      "Secure authentication",
+      "Cloud synchronization",
+      "Analytics integration",
+      "Custom branding options"
+    ]
   }
 ];
 
@@ -48,14 +57,14 @@ export default function Solutions() {
             Tailored Solutions for Every Business
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Whether you're a small service center or a large automotive manufacturer, 
+            Whether you're a small service center or a large automotive manufacturer,
             our solutions scale to meet your specific business requirements.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {solutions.map((solution, index) => (
-            <div 
+            <div
               key={index}
               className="bg-gray-800 rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-gray-700"
             >
@@ -68,7 +77,7 @@ export default function Solutions() {
                   {solution.description}
                 </p>
               </div>
-              
+
               <div className="p-8">
                 <ul className="space-y-4">
                   {solution.features.map((feature, featureIndex) => (
@@ -78,7 +87,7 @@ export default function Solutions() {
                     </li>
                   ))}
                 </ul>
-                
+
                 <button className="w-full mt-8 bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg font-semibold transition-colors">
                   Learn More
                 </button>

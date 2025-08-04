@@ -1,0 +1,281 @@
+/* Services.css */
+
+.services-section {
+    padding: 5rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Gradient Background */
+.gradient-background {
+    position: absolute;
+    inset: 0;
+    background: #0b0c19;
+}
+
+/* Animated Background Elements */
+.background-orbs {
+    position: absolute;
+    inset: 0;
+    opacity: 0.3;
+}
+
+.orb {
+    position: absolute;
+    width: 24rem;
+    height: 24rem;
+    border-radius: 50%;
+    mix-blend-mode: multiply;
+    filter: blur(3rem);
+    opacity: 0.2;
+    animation: pulse 4s ease-in-out infinite;
+}
+
+.orb-1 {
+    top: 25%;
+    left: 25%;
+    background: #3b82f6;
+}
+
+.orb-2 {
+    top: 75%;
+    right: 25%;
+    background: #8b5cf6;
+    animation-delay: 2s;
+}
+
+.orb-3 {
+    bottom: 25%;
+    left: 33.333333%;
+    background: #ec4899;
+    animation-delay: 4s;
+}
+
+/* Content Container */
+.content-container {
+    position: relative;
+    z-index: 10;
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+@media (min-width: 640px) {
+    .content-container {
+        padding: 0 1.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .content-container {
+        padding: 0 2rem;
+    }
+}
+
+/* Header Section */
+.header-section {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.main-title {
+    font-size: 1.875rem;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 4px 6px rgb(0 0 0 / 0.1));
+}
+
+@media (min-width: 768px) {
+    .main-title {
+        font-size: 2.25rem;
+    }
+}
+
+.main-description {
+    font-size: 1.25rem;
+    color: #e5e7eb;
+    max-width: 48rem;
+    margin: 0 auto;
+    filter: drop-shadow(0 2px 4px rgb(0 0 0 / 0.1));
+}
+
+/* Grid Layout */
+.services-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .services-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Glass Card Styles */
+.glass-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        0 0 0 1px rgba(255, 255, 255, 0.05),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    transform-origin: center;
+}
+
+.glass-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(139, 92, 246, 0.3);
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.4),
+        0 0 0 1px rgba(139, 92, 246, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    transform: translateY(-8px);
+}
+
+.glass-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.glass-card:hover::before {
+    opacity: 1;
+}
+
+.glass-card:hover {
+    animation: float 6s ease-in-out infinite;
+}
+
+/* Card Content */
+.card-content {
+    position: relative;
+    padding: 1.5rem;
+    height: 100%;
+}
+
+/* Icon Styles */
+.icon-container {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+
+.glass-card:hover .icon-glow {
+    opacity: 0.6;
+}
+
+.glass-card:hover .service-title {
+    color: #dbeafe;
+}
+
+.service-description {
+    color: #d1d5db;
+    line-height: 1.625;
+    transition: color 0.3s ease;
+}
+
+.glass-card:hover .service-description {
+    color: #e5e7eb;
+}
+
+/* Hover Accent Line */
+.accent-line {
+    position: absolute;
+    bottom: 0;
+    left: 1.5rem;
+    right: 1.5rem;
+    height: 2px;
+    background: linear-gradient(90deg, #60a5fa, #a78bfa);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s ease;
+}
+
+.glass-card:hover .accent-line {
+    transform: scaleX(1);
+}
+
+/* Animation States */
+.card-hidden {
+    transform: translateY(2rem) scale(0.95);
+    opacity: 0;
+    transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-visible {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+}
+
+/* Animations */
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 0.2;
+    }
+
+    50% {
+        opacity: 0.4;
+    }
+}
+
+/* Animation Delays */
+.delay-100 {
+    transition-delay: 100ms;
+}
+
+.delay-200 {
+    transition-delay: 200ms;
+}
+
+.delay-300 {
+    transition-delay: 300ms;
+}
+
+.delay-400 {
+    transition-delay: 400ms;
+}
+
+.delay-500 {
+    transition-delay: 500ms;
+}
+
+.delay-600 {
+    transition-delay: 600ms;
+}
+
+.delay-700 {
+    transition-delay: 700ms;
+}
+
+.delay-800 {
+    transition-delay: 800ms;
+}
+
+.delay-900 {
+    transition-delay: 900ms;
+}
+
+.delay-1000 {
+    transition-delay: 1000ms;
+}

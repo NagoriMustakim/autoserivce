@@ -1,7 +1,7 @@
+'use client'
 import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import herocar from '../public/images/herocar3.png';
-
 export default function Hero() {
   return (
     <section id="home" className="relative bg-[#0b0c19] py-20 min-h-screen flex items-center">
@@ -38,6 +38,7 @@ export default function Hero() {
               <button className="border-2 border-gray-600 hover:border-blue-400 text-gray-300 hover:text-blue-400 px-8 py-4 rounded-lg font-semibold flex items-center justify-center gap-2 transition-all backdrop-blur-sm bg-white/10">
                 Book a Free Consultation
               </button>
+              <div id='calendly'></div>
             </div>
 
             <div className="grid grid-cols-3 gap-8 pt-8 border-t border-gray-700/50">

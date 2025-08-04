@@ -1,15 +1,18 @@
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+'use client'
+import { Mail, MapPin, Phone, Send } from 'lucide-react';
+import Script from 'next/script';
 
 export default function Contact() {
   return (
     <section id="contact" className="py-20 bg-gray-900">
+      <Script src="https://assets.calendly.com/assets/external/widget.js" strategy="lazyOnload" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Ready to Transform Your Business?
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Get in touch with our experts to discuss how AutoService can help streamline 
+            Get in touch with our experts to discuss how AutoService can help streamline
             your automotive business operations and drive growth.
           </p>
         </div>
@@ -22,7 +25,7 @@ export default function Contact() {
                 Get in Touch
               </h3>
               <p className="text-gray-300 mb-8">
-                Our team is ready to help you find the perfect solution for your automotive business. 
+                Our team is ready to help you find the perfect solution for your automotive business.
                 Contact us today for a free consultation and demo.
               </p>
             </div>
@@ -34,7 +37,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <div className="font-semibold text-white">Phone</div>
-                  <div className="text-gray-300">+1 (555) 123-4567</div>
+                  <div className="text-gray-300">+91 9313067765</div>
                 </div>
               </div>
 
@@ -44,7 +47,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <div className="font-semibold text-white">Email</div>
-                  <div className="text-gray-300">info@autoservice.com</div>
+                  <div className="text-gray-300">mustakimnagori076@gmail.com</div>
                 </div>
               </div>
 
@@ -54,7 +57,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <div className="font-semibold text-white">Address</div>
-                  <div className="text-gray-300">123 Tech Street, Silicon Valley, CA 94025</div>
+                  <div className="text-gray-300">Ahemdabad Gujarat</div>
                 </div>
               </div>
             </div>
@@ -80,6 +83,7 @@ export default function Contact() {
                   </label>
                   <input
                     type="text"
+                    required
                     className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors text-white placeholder-gray-400"
                     placeholder="John"
                   />
@@ -102,6 +106,7 @@ export default function Contact() {
                 </label>
                 <input
                   type="email"
+                  required
                   className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors text-white placeholder-gray-400"
                   placeholder="john@company.com"
                 />
@@ -117,26 +122,12 @@ export default function Contact() {
                   placeholder="Your Company Name"
                 />
               </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
-                  Business Type
-                </label>
-                <select className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors text-white">
-                  <option>Select your business type</option>
-                  <option>Dealership</option>
-                  <option>Service Center</option>
-                  <option>Manufacturer</option>
-                  <option>Parts Supplier</option>
-                  <option>Other</option>
-                </select>
-              </div>
-
               <div>
                 <label className="block text-sm font-medium text-gray-300 mb-2">
                   Message
                 </label>
                 <textarea
+                  required
                   rows={4}
                   className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors text-white placeholder-gray-400"
                   placeholder="Tell us about your requirements..."

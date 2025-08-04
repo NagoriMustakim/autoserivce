@@ -1,0 +1,106 @@
+.glass-stat-card {
+    background: linear-gradient(135deg,
+            rgba(96, 165, 250, 0.1) 0%,
+            rgba(139, 92, 246, 0.08) 50%,
+            rgba(59, 130, 246, 0.1) 100%);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(96, 165, 250, 0.2);
+    border-radius: 1.5rem;
+    padding: 2rem;
+    text-align: center;
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        0 0 0 1px rgba(96, 165, 250, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.glass-stat-card:hover {
+    background: linear-gradient(135deg,
+            rgba(96, 165, 250, 0.15) 0%,
+            rgba(139, 92, 246, 0.12) 50%,
+            rgba(59, 130, 246, 0.15) 100%);
+    border-color: rgba(96, 165, 250, 0.4);
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.4),
+        0 0 0 1px rgba(96, 165, 250, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2),
+        0 0 50px rgba(96, 165, 250, 0.2);
+    transform: translateY(-8px) scale(1.02);
+}
+
+.glass-stat-card:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(96, 165, 250, 0.8), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.glass-stat-card:hover:before {
+    opacity: 1;
+}
+
+.glass-stat-card:after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #60a5fa, #8b5cf6, #3b82f6, #60a5fa);
+    border-radius: 1.5rem;
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.3s ease;
+    animation: rotate 4s linear infinite;
+}
+
+.glass-stat-card:hover:after {
+    opacity: 0.1;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(-8px) rotate(0deg);
+    }
+
+    33% {
+        transform: translateY(-12px) rotate(1deg);
+    }
+
+    66% {
+        transform: translateY(-4px) rotate(-1deg);
+    }
+}
+
+.glass-stat-card:hover {
+    animation: float 3s ease-in-out infinite;
+}
+
+.animation-delay-2000 {
+    animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+    animation-delay: 4s;
+}

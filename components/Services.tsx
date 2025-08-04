@@ -1,25 +1,34 @@
-import { 
-  Settings, 
-  Users, 
-  BarChart3, 
-  Shield, 
-  Smartphone, 
-  Database,
-  Wrench,
+'use client'
+import {
+  BarChart3,
   Car,
-  CreditCard
+  CreditCard,
+  Database,
+  Settings,
+  Shield,
+  Smartphone,
+  Users,
+  Wrench
 } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
+import "./styles/solutions.css";
+
 
 const services = [
   {
     icon: <Car className="w-8 h-8" />,
-    title: "Dealership Management",
-    description: "Complete CRM and inventory management system for automotive dealerships with sales tracking and customer management."
+    title: "Dealership management solutions",
+    description: "We deliver comprehensive solutions to handle front-end and back-end operations in auto dealership companies."
   },
   {
     icon: <Wrench className="w-8 h-8" />,
     title: "Service Center Solutions",
     description: "Streamline workshop operations with appointment scheduling, work order management, and technician tracking."
+  },
+  {
+    icon: <Wrench className="w-8 h-8" />,
+    title: "Automotive ecommerce solutions",
+    description: "We build custom platforms for auto retailers to sell vehicles, parts, services, and enhance customer experience"
   },
   {
     icon: <Database className="w-8 h-8" />,
@@ -28,8 +37,8 @@ const services = [
   },
   {
     icon: <BarChart3 className="w-8 h-8" />,
-    title: "Analytics & Reporting",
-    description: "Comprehensive business intelligence with custom dashboards, performance metrics, and predictive analytics."
+    title: "Logistics software",
+    description: "We develop solutions to help companies from the automotive sector manage and optimize supply chain processes, such as the distribution and delivery of vehicles, parts, and components."
   },
   {
     icon: <CreditCard className="w-8 h-8" />,
@@ -58,39 +67,128 @@ const services = [
   }
 ];
 
+// Custom hook for intersection observer
+function useIntersectionObserver(threshold: number = 0.1) {
+  const [visibleItems, setVisibleItems] = useState<Set<number>>(new Set());
+  const observers = useRef<Map<number, IntersectionObserver>>(new Map());
+
+  const observe = (element: Element | null, index: number) => {
+    if (!element) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setVisibleItems(prev => {
+          const newSet = new Set(prev);
+          if (entry.isIntersecting) {
+            newSet.add(index);
+          }
+          return newSet;
+        });
+      },
+      { threshold }
+    );
+
+    observer.observe(element);
+    observers.current.set(index, observer);
+  };
+
+  const unobserve = (index: number) => {
+    const observer = observers.current.get(index);
+    if (observer) {
+      observer.disconnect();
+      observers.current.delete(index);
+    }
+  };
+
+  useEffect(() => {
+    return () => {
+      observers.current.forEach(observer => observer.disconnect());
+    };
+  }, []);
+
+  return { visibleItems, observe, unobserve };
+}
+
 export default function Services() {
+  const { visibleItems, observe, unobserve } = useIntersectionObserver(0.2);
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    cardRefs.current.forEach((ref, index) => {
+      if (ref) observe(ref, index);
+    });
+
+    return () => {
+      cardRefs.current.forEach((_, index) => unobserve(index));
+    };
+  }, [observe, unobserve]);
+
+  const getDelayClass = (index: number): string => {
+    const delay = (index % 10) + 1;
+    return `delay-${delay * 100}`;
+  };
+
   return (
-    <section id="services" className="py-20 bg-[#0b0c19]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+    <section id="services" className="services-section">
+      {/* Gradient Background */}
+      <div className="gradient-background"></div>
+
+      {/* Animated Background Elements */}
+      <div className="background-orbs">
+        <div className="orb orb-1"></div>
+        <div className="orb orb-2"></div>
+        <div className="orb orb-3"></div>
+      </div>
+
+      <div className="content-container">
+        <div className="header-section">
+          <h2 className="main-title">
             Comprehensive Software Solutions
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            From dealership management to service center operations, we provide end-to-end software solutions 
+          <p className="main-description">
+            From dealership management to service center operations, we provide end-to-end software solutions
             tailored for the automotive industry's unique needs.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="services-grid">
           {services.map((service, index) => (
-            <div 
+            <div
               key={index}
-              className="bg-gray-800 border border-gray-700 rounded-xl p-6 hover:shadow-lg hover:border-blue-400 transition-all duration-300 group"
+              ref={el => cardRefs.current[index] = el}
+              className={`
+                glass-card
+                ${visibleItems.has(index) ? 'card-visible' : 'card-hidden'}
+                ${getDelayClass(index)}
+              `}
             >
-              <div className="text-blue-400 mb-4 group-hover:scale-110 transition-transform duration-300">
-                {service.icon}
+              <div className="card-content">
+                {/* Icon Container with Glow Effect */}
+
+                <div className="icon-container">
+                  <div className="flex flex-row gap-4 items-center w-fit mx-auto">
+                    <div className="text-blue-400 text-3xl mb-2">
+                      {service.icon}
+                    </div>
+                    <h3 className="text-white font-semibold">
+                      {service.title}
+                    </h3>
+                  </div>
+                </div>
+
+                {/* Content */}
+
+                <p className="text-1xl text-white">
+                  {service.description}
+                </p>
+
+                {/* Hover Accent Line */}
+                <div className="accent-line"></div>
               </div>
-              <h3 className="text-xl font-semibold text-white mb-3">
-                {service.title}
-              </h3>
-              <p className="text-gray-300 leading-relaxed">
-                {service.description}
-              </p>
             </div>
           ))}
         </div>
       </div>
     </section>
   );
-}
+};

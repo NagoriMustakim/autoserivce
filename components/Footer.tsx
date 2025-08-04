@@ -1,4 +1,5 @@
-import { Facebook, Twitter, Linkedin, Instagram, Mail, Phone } from 'lucide-react';
+import { Facebook, Instagram, Linkedin, Mail, Phone, Twitter } from 'lucide-react';
+import Link from 'next/link';
 
 export default function Footer() {
   return (
@@ -9,8 +10,8 @@ export default function Footer() {
           <div className="space-y-4">
             <h3 className="text-2xl font-bold text-blue-400">AutoService</h3>
             <p className="text-gray-300 leading-relaxed">
-              Leading provider of comprehensive software solutions for the automotive industry. 
-              Empowering businesses with innovative technology since 2009.
+              Leading provider of comprehensive software solutions for the automotive industry.
+              Empowering businesses with innovative technology.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
@@ -58,24 +59,11 @@ export default function Footer() {
             <div className="space-y-3">
               <div className="flex items-center gap-3">
                 <Phone size={16} className="text-blue-400" />
-                <span className="text-gray-300">+1 (555) 123-4567</span>
+                <span className="text-gray-300">+91 9313067765</span>
               </div>
               <div className="flex items-center gap-3">
                 <Mail size={16} className="text-blue-400" />
-                <span className="text-gray-300">info@autoservice.com</span>
-              </div>
-            </div>
-            <div className="pt-4">
-              <h5 className="font-semibold mb-2">Newsletter</h5>
-              <div className="flex">
-                <input
-                  type="email"
-                  placeholder="Your email"
-                  className="flex-1 px-3 py-2 bg-gray-800 border border-gray-600 rounded-l-lg focus:outline-none focus:border-blue-400 text-white placeholder-gray-400"
-                />
-                <button className="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-r-lg transition-colors">
-                  Subscribe
-                </button>
+                <span className="text-gray-300">mustakimnagori076@gmail.com</span>
               </div>
             </div>
           </div>
@@ -84,12 +72,10 @@ export default function Footer() {
         <div className="border-t border-gray-700 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm">
-              © 2024 AutoService. All rights reserved.
+              © 2025 AutoService. All rights reserved.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">Privacy Policy</a>
-              <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">Terms of Service</a>
-              <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">Cookie Policy</a>
+              <Link href={'/privacy-policy'} className="text-gray-400 hover:text-white text-sm transition-colors">Privacy Policy</Link>
             </div>
           </div>
         </div>
