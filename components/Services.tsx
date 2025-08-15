@@ -143,11 +143,11 @@ export default function Services() {
       <div className="content-container">
         <div className="header-section">
           <h2 className="main-title">
-            Comprehensive Software Solutions
+            Comprehensive AI-powered Software Solutions
           </h2>
           <p className="main-description">
             From dealership management to service center operations, we provide end-to-end software solutions
-            tailored for the automotive industry's unique needs.
+            tailored for the automotive industry&apos;s unique needs.
           </p>
         </div>
 

@@ -21,12 +21,11 @@ export default function Hero() {
           <div className="space-y-8">
             <div className="space-y-4">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight drop-shadow-lg">
-                Software Solutions
+                AI-Driven Software
                 <span className="text-blue-400 block">for the Automobile Industry</span>
               </h1>
               <p className="text-xl text-gray-300 leading-relaxed drop-shadow-md">
-                Comprehensive software solutions for dealerships, service centers, manufacturers, and automotive businesses.
-                Streamline operations, enhance customer experience, and drive growth with our cutting-edge technology.
+                Comprehensive AI-powered software solutions for dealerships, service centers, manufacturers, and automotive businesses. Enhance operations, customer experience, and growth through intelligent technology.
               </p>
             </div>
 

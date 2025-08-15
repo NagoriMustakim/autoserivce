@@ -35,7 +35,7 @@ export default function About() {
     const [visibleItems, setVisibleItems] = useState(new Set());
     const observers = useRef(new Map());
 
-    const observe = (element, index) => {
+    const observe = (element:any, index:any) => {
       if (!element) return;
 
       const observer = new IntersectionObserver(
@@ -55,7 +55,7 @@ export default function About() {
       observers.current.set(index, observer);
     };
 
-    const unobserve = (index) => {
+    const unobserve = (index:any) => {
       const observer = observers.current.get(index);
       if (observer) {
         observer.disconnect();
@@ -105,7 +105,7 @@ export default function About() {
                 Leading the Digital Transformation of Automotive Industry
               </h2>
               <p className="text-lg text-gray-200 leading-relaxed mb-6 drop-shadow-md">
-                AutoService represents the next generation of automotive software. We're a forward-thinking team committed to revolutionizing how automotive businesses manage their operations, serve customers, and scale their success through intelligent, user-friendly technology.
+                AutoService represents the next generation of automotive software. We&apos;re a forward-thinking team committed to revolutionizing how automotive businesses manage their operations, serve customers, and scale their success through intelligent, user-friendly technology.
               </p>
               <p className="text-lg text-gray-200 leading-relaxed drop-shadow-md">
                 Our team of industry experts and software engineers work closely with clients to develop
@@ -142,7 +142,7 @@ export default function About() {
             {stats.map((stat, index) => (
               <div
                 key={index}
-                ref={el => cardRefs.current[index] = el}
+                ref={(el:never) => cardRefs.current[index] = el}
                 className={`
                   glass-stat-card group cursor-pointer
                   transform transition-all duration-700 ease-out

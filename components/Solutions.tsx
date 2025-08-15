@@ -57,7 +57,7 @@ export default function Solutions() {
             Tailored Solutions for Every Business
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Whether you're a small service center or a large automotive manufacturer,
+            Whether you&apos;re a small service center or a large automotive manufacturer,
             our solutions scale to meet your specific business requirements.
           </p>
         </div>
